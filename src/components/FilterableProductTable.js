@@ -15,10 +15,19 @@ const FilterableProductTable = React.createClass({
     }
   },
 
+  handleUserInput(filterText, inStockOnly) {
+    this.setState({
+      filterText: filterText,
+      inStockOnly: inStockOnly
+    })
+  },
+
+  // don't forget bind(this) for propogatig handleInput methods
+  
   render() {
     return (
       <div>
-        <SearchBar filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
+        <SearchBar filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} onUserInput={this.handleUserInput.bind(this)} />
         <ProductTable products={this.props.data} filterText={this.state.filterText} inStockOnly={this.state.inStockOnly} />
       </div>
     )
