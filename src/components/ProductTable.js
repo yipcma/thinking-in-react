@@ -8,6 +8,9 @@ const ProductTable = React.createClass({
     let lastCategory = null
     // note .map returns an array, .forEach does not
     this.props.products.forEach((product) => {
+      if (product.name.indexOf(this.props.filterText) === -1 || (!product.stocked && this.props.inStockOnly)) {
+        return
+      }
       if (product.category !== lastCategory) {
         rows.push(<ProductCategoryRow category={product.category} key={product.category} />)
       }
