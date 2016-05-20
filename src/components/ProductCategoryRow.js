@@ -3,7 +3,7 @@ import React from 'react'
 const ProductCategoryRow = React.createClass({
   render() {
     return(
-      <div>I'm a ProductCategoryRow.</div>
+      (<tr><th colSpan="2">{this.props.category}</th></tr>)
     )
   }
 })

@@ -7,7 +7,7 @@ const FilterableProductTable = React.createClass({
     return (
       <div>
         <SearchBar />
-        <ProductTable data={this.props.data} />
+        <ProductTable products={this.props.data} />
       </div>
     )
   }
